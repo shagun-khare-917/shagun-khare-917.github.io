@@ -1,10 +1,12 @@
 :root {
-    --primary-color: #5e0fdebb;
-    --secondary-color: #ffffff;
+    --primary-color: #067db5bb;
+    --secondary-color: #689fe1;
     --text-color: #000000;
-    --bg-color: #000000;
-    --card-bg-color: #8917ba;
+    --bg-color: #ffffff;
+    --card-bg-color: #f5f5f5;
 }
+
+
 
 * {
     margin: 0;
