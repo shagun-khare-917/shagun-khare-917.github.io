@@ -91,3 +91,18 @@ document.addEventListener('DOMContentLoaded', () => {
         fadeInObserver.observe(section);
     });
 });
+
+// Add fade-in animation for experience cards
+const experienceCards = document.querySelectorAll('.experience-card');
+const experienceObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('fade-in');
+            experienceObserver.unobserve(entry.target);
+        }
+    });
+}, { threshold: 0.2 });
+
+experienceCards.forEach(card => {
+    experienceObserver.observe(card);
+});
