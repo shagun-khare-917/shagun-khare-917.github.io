@@ -12,9 +12,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // Typing effect for the hero section
     const phrases = [
         "Computer Science Student @ UIUC",
-        "Software Developer",
-        "Product Management",
-        "Hackathon Enthusiast"
+        "Software Engineer",
+        "Project Manager",
+        "Diversity in Tech Leader"
     ];
     let phraseIndex = 0;
     let charIndex = 0;
@@ -105,4 +105,31 @@ const experienceObserver = new IntersectionObserver((entries) => {
 
 experienceCards.forEach(card => {
     experienceObserver.observe(card);
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+    const skillBars = document.querySelectorAll('.skill-level');
+
+    const animateSkillBars = (entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                skillBars.forEach(bar => {
+                    const width = bar.style.width;
+                    bar.style.width = '0';
+                    setTimeout(() => {
+                        bar.style.width = width;
+                    }, 100);
+                });
+                observer.unobserve(entry.target);
+            }
+        });
+    };
+
+    const observer = new IntersectionObserver(animateSkillBars, {
+        threshold: 0.5
+    });
+
+    skillBars.forEach(bar => {
+        observer.observe(bar);
+    });
 });
