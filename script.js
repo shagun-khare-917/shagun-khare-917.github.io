@@ -113,14 +113,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const animateSkillBars = (entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                skillBars.forEach(bar => {
-                    const width = bar.style.width;
-                    bar.style.width = '0';
-                    setTimeout(() => {
-                        bar.style.width = width;
-                    }, 100);
-                });
-                observer.unobserve(entry.target);
+                const bar = entry.target;
+                const targetWidth = bar.getAttribute('data-width'); // Correct way to get width
+                bar.style.width = targetWidth; // Apply the width
             }
         });
     };
